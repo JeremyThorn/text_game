@@ -55,24 +55,26 @@ class Agent(object):
             else:
                 self.node.inventory[item] -= 1
 
-a = Node("A", 0)
-b = Node("B", 1)
-c = Node("C", 1, "D")
-d = Node("D", 2)
+if __name__ == "__main__":
 
-nodes = {"A":a, "B":b, "C":c, "D":d}
-graph = {a:[b, c], b:[a], c:[a, d], d:[a,c]}
+    a = Node("A", 0)
+    b = Node("B", 1)
+    c = Node("C", 1, "D")
+    d = Node("D", 2)
 
-bob = Agent("Bob", a, [a, None, None, None, None, None])
+    nodes = {"A":a, "B":b, "C":c, "D":d}
+    graph = {a:[b, c], b:[a], c:[a, d], d:[a,c]}
 
-print(bob.position)
-bob.move(nodes, graph, c)
-print(bob.position)
-bob.move(nodes, graph, d)
-print(bob.position)
-bob.move(nodes, graph, c)
-print(bob.position)
-bob.move(nodes, graph, a)
-print(bob.position)
-bob.move(nodes, graph, b)
-print(bob.position)
+    bob = Agent("Bob", a, [a, None, None, None, None, None])
+
+    print(bob.position)
+    bob.move(nodes, graph, c)
+    print(bob.position)
+    bob.move(nodes, graph, d)
+    print(bob.position)
+    bob.move(nodes, graph, c)
+    print(bob.position)
+    bob.move(nodes, graph, a)
+    print(bob.position)
+    bob.move(nodes, graph, b)
+    print(bob.position)
